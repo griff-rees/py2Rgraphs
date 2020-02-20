@@ -1,0 +1,19 @@
+Package: py2Rgraphs
+Type: Package
+Title: Interoperability between Python and R network/graph datatypes.
+Version: 0.1.0
+Authors@R: person("Griffith", "Rees",
+                  email = "griffith.rees@sheffield.ac.uk",
+                  role = c("aut", "cre"))
+Description: Convert python network/graph datatypes (currently NetworkX) to 
+    equivalent R datatypes (currently iGraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Config/reticulate:
+  list(
+    packages = list(
+      list(package = "pandas", version = "1.0.1", pip = TRUE),
+      list(package = "networkx", version = "2.4.0", pip = TRUE)
+    )
+  )

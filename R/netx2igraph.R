@@ -13,17 +13,26 @@
 #' @rdname netx2igraph
 #' @export
 netx2igraph <- function(path) {
-  networkx <- reticulate::import("networkx")
+  # networkx <- reticulate::import("networkx")
   netxio <- reticulate::import("networkxio")  # Refactor out
 
   netxgraph <- netxio$read_json_graph(path)
-  netxnodes <- netxio$networkx2nodeattr(netxgraph)
+  netxnodes <- netxio$networkx3nodeattr(netxgraph)
+  
+  is_bimodal <-netxio$is_bipartite(netxgraph)
+  if(is_bimodal) {
+    netxnodes$types <- netxnodes$bipartite
+  }
+  
   netxedges <- netxio$networkx2edgeattr(netxgraph)
   
-  is_directed <- networkx$is_directed(netxgraph)
-  rg <- igraph::graph_from_data_frame(netxedges,
+  is_directed <- netxio$is_directed(netxgraph)
+  rg <- igraph$graph_from_data_frame(netxedges,
                                       directed=is_directed,
                                       vertices=netxnodes)
+  # if(is_bimodal) {
+  # 
+  # }
   return(rg)
 }
 

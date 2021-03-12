@@ -1,10 +1,9 @@
 language: r
 dist: bionic
-sudo: true
-# r:
-#   - oldrel
-#   - release
-#   - devel
+r:
+  - oldrel
+  - release
+  - devel
 
 cache:
   - packages
@@ -16,8 +15,8 @@ addons:
       - python3-pip
       - python3-setuptools
 
-# before_install:
-#   - sudo pip install --upgrade pip
+before_install:
+  - pip3 install --local networkx pandas
 
 after_success:
   - Rscript -e 'covr::codecov()'

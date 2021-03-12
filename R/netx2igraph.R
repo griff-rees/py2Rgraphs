@@ -36,5 +36,8 @@ netx2igraph <- function(path) {
   rg <- igraph::graph_from_data_frame(netxedges,
                                       directed=is_directed,
                                       vertices=netxnodes)
+  if(networkx$is_bipartite(netxgraph)){
+    igraph::V(rg)$type <-igraph::V(rg)$bipartite
+  }
   return(rg)
 }

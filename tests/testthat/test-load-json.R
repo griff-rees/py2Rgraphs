@@ -8,4 +8,5 @@ test_that("basic NetworkX JSON converts to igraph Network object", {
   testIgraph <-py2Rgraphs::netx2igraph("test-networkx.json")
   expect_equal(igraph::vcount(testIgraph), 20)
   expect_equal(igraph::ecount(testIgraph), 19)
+  expect_true(igraph::is_bipartite(testIgraph))
 })

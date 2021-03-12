@@ -1,4 +1,4 @@
-language: R
+language: r
 sudo: true
 # r:
 #   - oldrel
@@ -13,12 +13,10 @@ addons:
   apt:
     packages:
       - python3-pip
+      - python3-setuptools
 
-before_install:
-  - sudo pip install --upgrade pip
-  - sudo apt install python3-pip
-  - sudo apt-get install python3-setuptools
-  - pip3 install --user numpy
+# before_install:
+#   - sudo pip install --upgrade pip
 
 after_success:
   - Rscript -e 'covr::codecov()'

@@ -14,7 +14,7 @@ addons:
       - python3-pip
 
 before_install:
-  - pip3 install --user -U pip3
+  - pip3 install --user --upgrade pip
   - pip3 install --user setuptools numpy
 
 after_success:

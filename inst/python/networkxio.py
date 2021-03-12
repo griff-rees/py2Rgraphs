@@ -10,14 +10,14 @@ from pandas import DataFrame
 
 def read_json_graph(path: PathLike) -> Graph:
     """Read a json link_data_format file with nodes, edges and attributes."""
-    path = Path(path)
+    path: PathLike = Path(path)
     with open(path) as graph_file:
         return node_link_graph(load(graph_file))
         
         
 def write_json_graph(graph: Graph, path: PathLike) -> None:
     """Write a json file including nodes, edges and attributes."""
-    path = Path(path)
+    path: PathLike = Path(path)
     path.parent.mkdir(exist_ok=True, parents=True)
     with open(path, "w") as graph_file:
         dump(node_link_data(graph), graph_file)

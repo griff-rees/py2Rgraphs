@@ -1,4 +1,4 @@
-#' Convert networkx graph to igraph Graph
+#' Convert networkx graph to an igraph Graph
 #'
 #' This uses \code{networkx} and \code{pandas} python libraries to convert
 #' a \code{networkx} graph object to an R \code{igraph} object, including

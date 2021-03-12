@@ -6,4 +6,7 @@ r:
   - devel
 
 before_install:
-  - pip install numpy
+  - pip3 install --user numpy
+
+after_success:
+  - Rscript -e 'covr::codecov()'

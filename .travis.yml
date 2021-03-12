@@ -5,6 +5,15 @@ r:
   - release
   - devel
 
+cache:
+  - packages
+  - pip
+
+addons:
+  apt:
+    packages:
+      - python3-pip
+
 before_install:
   - pip3 install --user numpy
 

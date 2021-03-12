@@ -1,40 +1,40 @@
-#' Convert networkx bipartite graph to igraph
-#' 
-#' This uses \code{networkx} and \code{pandas python libraries to convert
-#' a \code{networkx} graph object to an R \code{igraph} object
-#' 
-#' @param path A path to the \code{networkx} json file to load.
+#' Convert networkx graph to igraph Graph
+#'
+#' This uses \code{networkx} and \code{pandas} python libraries to convert
+#' a \code{networkx} graph object to an R \code{igraph} object, including
+#' whether the graph is bipartite.
+#'
+#' @param path A path to a \code{networkx} json file to load.
 #' @return An \code{igraph} object equivalent with all the components in
-#'   \{path}.
+#'   \code{path}.
 #' @examples
-#' add(1, 1)
-#' add(10, 1)
-#,
+#' \dontrun{
+#'   library(igraph)
+#'   boardNetwork <- netx2igraph('path/to/networkx/board-network.json')
+#'   vcount(boardNetwork)
+#' }
+#'
 #' @rdname netx2igraph
 #' @export
 netx2igraph <- function(path) {
-  networkx <- reticulate::import("networkx")
-  netxio <- reticulate::import("networkxio")  # Refactor out
+
+  if(! reticulate::py_module_available("networkx")){
+    warning("Python module 'networkx' not available, returning NULL")
+    return(NULL)
+  }
+
+  if(! reticulate::py_module_available("pandas")){
+    warning("Python module 'pandas' not available, returning NULL")
+    return(NULL)
+  }
 
   netxgraph <- netxio$read_json_graph(path)
   netxnodes <- netxio$networkx2nodeattr(netxgraph)
   netxedges <- netxio$networkx2edgeattr(netxgraph)
-  
+
   is_directed <- networkx$is_directed(netxgraph)
   rg <- igraph::graph_from_data_frame(netxedges,
                                       directed=is_directed,
                                       vertices=netxnodes)
   return(rg)
 }
-
-# networkx <- NULL
-# pandas <- NULL
-
-.onLoad <- function(libname, pkgname) {
-  reticulate::configure_environment(pkgname)
-  # networkx <<- reticulate::import("networkx", delay_load=TRUE)
-}
-
-# netx2pandas <-function(){
-# 
-# }

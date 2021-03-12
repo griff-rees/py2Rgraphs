@@ -1,20 +1,11 @@
 context("Loading and converting Networkx json")
-# reticulate::import("networkx")
 
-skip_if_no_networkx <- function() {
-  have_networkx <- reticulate::py_module_available("networkx")
-  if (!have_networkx)
-    skip("networkx not available for testing")
-}
+source("utils.R")
 
-skip_if_no_pandas <- function() {
-  have_pandas <- reticulate::py_module_available("pandas")
-  if (!have_pandas)
-    skip("pandas not available for testing")
-}
-
-test_that("loading an example Networkx json file for python", {
-  skip_if_no_pandas()
+test_that("basic NetworkX JSON converts to igraph Network object", {
   skip_if_no_networkx()
-  expect_equal(2 * 2, 4)
+  skip_if_no_pandas()
+  testIgraph <-py2Rgraphs::netx2igraph("test-networkx.json")
+  expect_equal(igraph::vcount(testIgraph), 20)
+  expect_equal(igraph::ecount(testIgraph), 19)
 })

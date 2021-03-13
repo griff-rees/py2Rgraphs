@@ -2,7 +2,7 @@
 % Please edit documentation in R/netx2igraph.R
 \name{netx2igraph}
 \alias{netx2igraph}
-\title{Convert networkx graph to igraph Graph}
+\title{Convert networkx graph to an igraph Graph}
 \usage{
 netx2igraph(path)
 }

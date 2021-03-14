@@ -29,8 +29,8 @@ install_pandas <- function(method = "auto", conda = "auto") {
 
 #' Install all needed python dependencies
 #'
-#' Install python dependencies not currently in the loaded in the current
-#' reticulate python environment
+#' Install python dependencies not currently in the loaded reticulate python
+#' environment
 install_dependencies <- function() {
   if (!reticulate::py_module_available("networkx")) {
     install_networkx()

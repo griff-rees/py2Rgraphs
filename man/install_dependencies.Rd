@@ -7,6 +7,6 @@
 install_dependencies()
 }
 \description{
-Install python dependencies not currently in the loaded in the current
-reticulate python environment
+Install python dependencies not currently in the loaded reticulate python
+environment
 }

@@ -1,23 +1,23 @@
 language: r
 dist: focal
 r:
-  - oldrel
+#  - oldrel
   - release
-  - devel
+#  - devel
 
-cache:
-  - packages
-  - pip
+# cache:
+#   - packages
+#   - pip
 
-addons:
-  apt:
-    packages:
-      - r-cran-reticulate
-      # - python3-pip
-      # - python3-setuptools
+# addons:
+#   apt:
+#     packages:
+#       - r-cran-reticulate
+#       # - python3-pip
+#       # - python3-setuptools
 
-# before_install:
-#   - pip3 install --local networkx pandas
+before_install:
+  - env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.6
 
 after_success:
   - Rscript -e 'covr::codecov()'

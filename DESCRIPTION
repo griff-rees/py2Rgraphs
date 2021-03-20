@@ -1,27 +1,24 @@
-Package: py2Rgraphs
 Type: Package
+Package: py2Rgraphs
 Title: Interoperability between Python and R network/graph datatypes
 Version: 0.1.0
-Authors@R: person("Griffith", "Rees",
-                  email = "griffith.rees@sheffield.ac.uk",
-                  role = c("aut", "cre"))
-Description: Convert python network/graph datatypes (currently NetworkX) to 
-    equivalent R datatypes (currently iGraph).
-License: GPL-3
-Encoding: UTF-8
-LazyData: true
-SystemRequirements: Python (>= 3.6)
+Authors@R: 
+    person(given = "Griffith",
+           family = "Rees",
+           role = c("aut", "cre"),
+           email = "griffith.rees@sheffield.ac.uk")
+Description: Convert python network/graph datatypes (currently NetworkX)
+    to equivalent R datatypes (currently iGraph).
+License: BSD_3_clause + file LICENSE
 Imports:
-    reticulate (>= 1.14),
-    igraph
+    igraph,
+    reticulate (>= 1.14)
 Suggests:
     testthat
+Config/reticulate: list(packages = list(list(package = "networkx", pip =
+    TRUE), list(package = "pandas", pip = TRUE)))
+Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
-Config/reticulate:
-  list(
-    packages = list(
-      list(package = "networkx", pip = TRUE),
-      list(package = "pandas", pip = TRUE)
-    )
-  )    
 RoxygenNote: 7.1.1
+SystemRequirements: Python (>= 3.6)

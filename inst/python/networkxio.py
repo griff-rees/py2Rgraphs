@@ -4,7 +4,7 @@ from json import dump, load
 from os import PathLike
 from pathlib import Path
 
-from networkx import Graph, node_link_graph, to_pandas_edgelist
+from networkx import Graph, node_link_data, node_link_graph, to_pandas_edgelist
 from pandas import DataFrame
 
 

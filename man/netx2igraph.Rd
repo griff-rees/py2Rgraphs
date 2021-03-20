@@ -19,10 +19,7 @@ a \code{networkx} graph object to an R \code{igraph} object, including
 whether the graph is bipartite.
 }
 \examples{
-\dontrun{
-  library(igraph)
-  boardNetwork <- netx2igraph('path/to/networkx/board-network.json')
-  vcount(boardNetwork)
-}
-
+library(igraph)
+board_network <- netx2igraph("path/to/networkx/board-network.json")
+vcount(board_network)
 }

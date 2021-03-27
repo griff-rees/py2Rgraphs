@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - master
+      - github-action-workflow
   pull_request:
     branches:
       - main
       - master
+      - github-action-workflow
 
 name: R-CMD-check
 

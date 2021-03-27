@@ -1,6 +1,6 @@
 Type: Package
 Package: py2Rgraphs
-Title: Interoperability between Python and R network/graph datatypes
+Title: Interoperability Between Python and R Network/Graph Datatypes
 Version: 0.1.0
 Authors@R: 
     person(given = "Griffith",

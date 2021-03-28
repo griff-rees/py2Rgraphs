@@ -54,4 +54,6 @@ SystemRequirements
 testthat
 ubuntu
 uk
+venv
+virtualenv
 writeLines

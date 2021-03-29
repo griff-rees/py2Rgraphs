@@ -73,6 +73,7 @@ jobs:
           sudo apt-get upgrade
           sudo apt-get install python3-virtualenv
           sudo apt-get install python3-venv
+          conda activate r-reticulate
         shell: /bin/bash {0}
 
       - name: Install dependencies

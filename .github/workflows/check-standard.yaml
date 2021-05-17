@@ -73,12 +73,12 @@ jobs:
           sudo apt-get upgrade
           sudo apt-get install python3-virtualenv
           sudo apt-get install python3-venv
-          conda init bash
         shell: /bin/bash {0}
 
       - name: Activate conda r-reticulate
         if: runner.os == 'Linux'
         run: |
+          conda init bash
           conda activate r-reticulate
         shell: /bin/bash {0}
 

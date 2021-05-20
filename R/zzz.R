@@ -8,8 +8,6 @@
     # DO NOT feel good about this even with the message
     message("Setting Python environment to: ", v)
     Sys.setenv(RETICULATE_PYTHON_ENV=v)
-  } else {
-    
   }
   # TODO again we should ask the user
   install_dependencies()

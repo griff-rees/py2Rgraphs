@@ -7,10 +7,12 @@
 #' @param path A path to a \code{networkx} json file to load.
 #' @return An \code{igraph} object equivalent with all the components in
 #'   \code{path}.
-#' @examples
+#' 
+#' @examples \dontrun{
 #' library(igraph)
 #' board_network <- netx2igraph("path/to/networkx/board-network.json")
 #' vcount(board_network)
+#' }
 #' @rdname netx2igraph
 #' @export
 netx2igraph <- function(path) {

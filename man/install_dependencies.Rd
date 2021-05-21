@@ -4,7 +4,12 @@
 \alias{install_dependencies}
 \title{Install all needed python dependencies}
 \usage{
-install_dependencies()
+install_dependencies(method = "auto", conda = "auto")
+}
+\arguments{
+\item{method}{string passed to reticulate::py_install 'method' parameter}
+
+\item{conda}{string passed to reticulate::py_install 'conda' parameter}
 }
 \description{
 Install python dependencies not currently in the loaded in the current

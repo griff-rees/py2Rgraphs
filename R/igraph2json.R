@@ -6,11 +6,12 @@
 #'
 #' @param r_igraph An \code{igraph} \code{graph} object
 #' @param path An file \code{path} to save to \code{Networkx} \code{json} format
-#' @examples
+#' @examples \dontrun{
 #' example_bi_modal_graph <- igraph::sample_bipartite(4, 5, p = .5)
 #' igraph2json(example_bi_modal_graph, "test.json")
 #' loaded_bi_modal_graph <- netx2igraph("test.json")
 #' as_edgelist(example_bi_modal_graph) == as_edgelist(loaded_bi_modal_graph)
+#' }
 #' @rdname igraph2json
 #' @export
 igraph2json <- function(r_igraph, path) {

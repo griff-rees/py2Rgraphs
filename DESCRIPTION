@@ -14,7 +14,8 @@ Imports:
     igraph,
     reticulate (>= 1.14)
 Suggests:
-    testthat
+    testthat,
+    covr
 Config/reticulate: list(packages = list(list(package = "networkx", pip =
     TRUE), list(package = "pandas", pip = TRUE)))
 Encoding: UTF-8
